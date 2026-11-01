@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Meizu 21 Pro public source set and DroidSpaces prebuilt. Proprietary
+       vendor/meizu blobs are intentionally not included in this manifest. -->
+  <remote name="mxihan-meizu" fetch="https://github.com/mxihan/" />
+  <remote name="meizu-kernel" fetch="https://github.com/meizu-8650-kernel/" />
+  <remote name="lineage-meizu" fetch="https://github.com/LineageOS/" />
+
+  <project name="android_device_meizu_meizu21Pro" path="device/meizu/meizu21Pro" remote="mxihan-meizu" revision="c2dd0cbccafa5a86a407101050c508f0827d3178" clone-depth="1" />
+  <project name="android_device_meizu_meizu21Pro-meizucamera" path="device/meizu/meizu21Pro-meizucamera" remote="mxihan-meizu" revision="cece1c826ac918ba9691479331c9db93f05bb539" clone-depth="1" />
+  <project name="android_hardware_meizu" path="hardware/meizu" remote="mxihan-meizu" revision="d1355f82b0b209cfd2a9b24e1340b473ae38bbb6" clone-depth="1" />
+
+  <project name="android_kernel_meizu_sm8650" path="kernel/meizu/sm8650" remote="mxihan-meizu" revision="19e9b13339e26612844b620c2bdd54228dc6d836" clone-depth="1" />
+  <project name="android_kernel_meizu_sm8650-modules" path="kernel/meizu/sm8650-modules" remote="meizu-kernel" revision="3ac14d92f2741c0a48d587d93719864b2972b9df" clone-depth="1" />
+  <project name="android_kernel_meizu_sm8650-devicetrees" path="kernel/meizu/sm8650-devicetrees" remote="meizu-kernel" revision="5b59cc310c679ce5b4d93794d0a8a87b946f50aa" clone-depth="1">
+    <linkfile src="." dest="kernel/meizu/sm8650/arch/arm64/boot/dts/vendor" />
+  </project>
+  <project name="vendor_qcom_proprietary_audio-devicetree" path="kernel/meizu/sm8650-audio-devicetrees" remote="meizu-kernel" revision="4493fbb420472afb36be7d66902398273472ed63" clone-depth="1">
+    <linkfile src="." dest="kernel/meizu/sm8650-devicetrees/qcom/audio" />
+  </project>
+  <project name="vendor_qcom_proprietary_camera-devicetree" path="kernel/meizu/sm8650-camera-devicetrees" remote="meizu-kernel" revision="8b3d2eb986f4ead08cd99e6db85fb820c156d2bf" clone-depth="1">
+    <linkfile src="." dest="kernel/meizu/sm8650-devicetrees/qcom/camera" />
+  </project>
+
+  <project name="android_kernel_qcom_sm8650-devicetrees" path="kernel/meizu/sm8650-qcom-devicetrees" remote="lineage-meizu" revision="4e146886d41b4de80f17ae1f5e19ed0839012136" clone-depth="1">
+    <linkfile src="qcom/bt" dest="kernel/meizu/sm8650-devicetrees/qcom/bt" />
+    <linkfile src="qcom/data" dest="kernel/meizu/sm8650-devicetrees/qcom/data" />
+    <linkfile src="qcom/display" dest="kernel/meizu/sm8650-devicetrees/qcom/display" />
+    <linkfile src="qcom/eva" dest="kernel/meizu/sm8650-devicetrees/qcom/eva" />
+    <linkfile src="qcom/graphics" dest="kernel/meizu/sm8650-devicetrees/qcom/graphics" />
+  </project>
+
+  <!-- BoardConfig.mk expects these external module roots. -->
+  <project name="vendor_meizu_opensource_kernel-modules" path="kernel/meizu/sm8650-modules/meizu-device" remote="meizu-kernel" revision="dafe79bf5dbb772def7805a05ac917fa55ae9855" clone-depth="1" />
+  <project name="vendor_nxp_opensource_driver" path="kernel/meizu/sm8650-modules/nxp/opensource/driver" remote="meizu-kernel" revision="eac8559da4e88659fb3abbfcbd04f06bf83e35aa" clone-depth="1" />
+  <project name="vendor_qcom_opensource_audio-kernel-ar" path="kernel/meizu/sm8650-modules/qcom/opensource/audio-kernel" remote="meizu-kernel" revision="b25e24e65224ca1d7a820c1b663687d4cfbd66ad" clone-depth="1" />
+  <project name="vendor_qcom_opensource_bt-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/bt-kernel" remote="meizu-kernel" revision="61cf1988b4f5fd8cece52f9fbf7081e9097d2720" clone-depth="1" />
+  <project name="vendor_qcom_opensource_camera-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/camera-kernel" remote="meizu-kernel" revision="9a35fb0789b516d46b11ffea9d1f0f7606af7a14" clone-depth="1" />
+  <project name="vendor_qcom_opensource_dataipa" path="kernel/meizu/sm8650-modules/qcom/opensource/dataipa" remote="meizu-kernel" revision="038e22855c881e250c0040f661e3953a6378f826" clone-depth="1" />
+  <project name="vendor_qcom_opensource_datarmnet" path="kernel/meizu/sm8650-modules/qcom/opensource/datarmnet" remote="meizu-kernel" revision="1c44bacd69ccc36a5c48dc7d90f8c27a4daea73a" clone-depth="1" />
+  <project name="vendor_qcom_opensource_datarmnet-ext" path="kernel/meizu/sm8650-modules/qcom/opensource/datarmnet-ext" remote="meizu-kernel" revision="d826d29fce8dd5396759c4ef16d22416818e00ad" clone-depth="1" />
+  <project name="vendor_qcom_opensource_display-drivers" path="kernel/meizu/sm8650-modules/qcom/opensource/display-drivers" remote="meizu-kernel" revision="b31a3c802d322a2832a933a7b64cf2e4fdff325c" clone-depth="1" />
+  <project name="vendor_qcom_opensource_dsp-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/dsp-kernel" remote="meizu-kernel" revision="2045e629af9263fe6161046553525d83eef8532a" clone-depth="1" />
+  <project name="vendor_qcom_opensource_eva-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/eva-kernel" remote="meizu-kernel" revision="f172464588cf8eeda6df09a89be4b9fceb2bd1bb" clone-depth="1" />
+  <project name="vendor_qcom_opensource_graphics-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/graphics-kernel" remote="meizu-kernel" revision="eaad0cd527c6a31eca644bd7bb2d262a3822fe98" clone-depth="1" />
+  <project name="vendor_qcom_opensource_mm-drivers" path="kernel/meizu/sm8650-modules/qcom/opensource/mm-drivers" remote="meizu-kernel" revision="810d1613f5b51e0a9a010ee5495cf75edf20602a" clone-depth="1" />
+  <project name="vendor_qcom_opensource_mm-sys-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/mm-sys-kernel" remote="meizu-kernel" revision="fbb96311d6fcc4394191ed9052f33020611fb8a0" clone-depth="1" />
+  <project name="vendor_qcom_opensource_mmrm-driver" path="kernel/meizu/sm8650-modules/qcom/opensource/mmrm-driver" remote="meizu-kernel" revision="3d1ecbf2bf133e4416db749feb7861257e181f57" clone-depth="1" />
+  <project name="vendor_qcom_opensource_securemsm-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/securemsm-kernel" remote="meizu-kernel" revision="80971ddc31ad61cca6579680cf31818562e0a26a" clone-depth="1" />
+  <project name="vendor_qcom_opensource_synx-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/synx-kernel" remote="meizu-kernel" revision="59596020152740d4697be9befdd6b7637918ca90" clone-depth="1" />
+  <project name="vendor_qcom_opensource_touch-drivers" path="kernel/meizu/sm8650-modules/qcom/opensource/touch-drivers" remote="meizu-kernel" revision="9ff7d02ed405ba78c5d822fe8964a1822bd7e5a2" clone-depth="1" />
+  <project name="vendor_qcom_opensource_video-driver" path="kernel/meizu/sm8650-modules/qcom/opensource/video-driver" remote="meizu-kernel" revision="af56965bc38de325e96e595257fc36273eae8a5e" clone-depth="1" />
+  <project name="vendor_qcom_opensource_wlan_platform" path="kernel/meizu/sm8650-modules/qcom/opensource/wlan/platform" remote="meizu-kernel" revision="7df491cb7bba89ccf5c5a52950314d07d3bb3d3f" clone-depth="1" />
+  <project name="vendor_qcom_opensource_wlan_qcacld-3.0" path="kernel/meizu/sm8650-modules/qcom/opensource/wlan/qcacld-3.0" remote="meizu-kernel" revision="26e5cdcac473923649df458a89161e66b1551e0e" clone-depth="1" />
+
+  <project name="meizu21pro-droidspaces-kernel" path="prebuilts/meizu/droidspaces" remote="mxihan-meizu" revision="6546ec0cb942798da5ec35d7c80cf0825032ac83" clone-depth="1" />
+</manifest>
