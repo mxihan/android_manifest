@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <manifest>
   <!-- Meizu 21 Pro public source set and DroidSpaces prebuilt. Proprietary
        vendor/meizu blobs are intentionally not included in this manifest. -->
   <remote name="mxihan-meizu" fetch="https://github.com/mxihan/" />
   <remote name="meizu-kernel" fetch="https://github.com/meizu-8650-kernel/" />
   <remote name="lineage-meizu" fetch="https://github.com/LineageOS/" />
-
-  <project name="android_device_meizu_meizu21Pro" path="device/meizu/meizu21Pro" remote="mxihan-meizu" revision="c2dd0cbccafa5a86a407101050c508f0827d3178" clone-depth="1" />
-  <project name="android_device_meizu_meizu21Pro-meizucamera" path="device/meizu/meizu21Pro-meizucamera" remote="mxihan-meizu" revision="cece1c826ac918ba9691479331c9db93f05bb539" clone-depth="1" />
-  <project name="android_hardware_meizu" path="hardware/meizu" remote="mxihan-meizu" revision="d1355f82b0b209cfd2a9b24e1340b473ae38bbb6" clone-depth="1" />
-
-  <project name="android_kernel_meizu_sm8650" path="kernel/meizu/sm8650" remote="mxihan-meizu" revision="19e9b13339e26612844b620c2bdd54228dc6d836" clone-depth="1" />
+  <project name="android_device_meizu_meizu21Pro" path="device/meizu/meizu21Pro" remote="mxihan-meizu" revision="cc9123f3948cce881acbe4303dcbaa73d6d8e7a5" clone-depth="1" upstream="refs/heads/pixelos17-droidspaces" />
+  <project name="android_device_meizu_meizu21Pro-meizucamera" path="device/meizu/meizu21Pro-meizucamera" remote="mxihan-meizu" revision="cece1c826ac918ba9691479331c9db93f05bb539" clone-depth="1" upstream="refs/heads/seventeen" />
+  <project name="android_hardware_meizu" path="hardware/meizu" remote="mxihan-meizu" revision="d1355f82b0b209cfd2a9b24e1340b473ae38bbb6" clone-depth="1" upstream="refs/heads/seventeen" />
+  <project name="android_kernel_meizu_sm8650" path="kernel/meizu/sm8650" remote="mxihan-meizu" revision="ddd872579d674cdd74033a30d37cd8de1286f5f3" clone-depth="1" upstream="refs/heads/pixelos17-droidspaces" />
   <project name="android_kernel_meizu_sm8650-modules" path="kernel/meizu/sm8650-modules" remote="meizu-kernel" revision="3ac14d92f2741c0a48d587d93719864b2972b9df" clone-depth="1" />
   <project name="android_kernel_meizu_sm8650-devicetrees" path="kernel/meizu/sm8650-devicetrees" remote="meizu-kernel" revision="5b59cc310c679ce5b4d93794d0a8a87b946f50aa" clone-depth="1">
     <linkfile src="." dest="kernel/meizu/sm8650/arch/arm64/boot/dts/vendor" />
@@ -21,7 +19,6 @@
   <project name="vendor_qcom_proprietary_camera-devicetree" path="kernel/meizu/sm8650-camera-devicetrees" remote="meizu-kernel" revision="8b3d2eb986f4ead08cd99e6db85fb820c156d2bf" clone-depth="1">
     <linkfile src="." dest="kernel/meizu/sm8650-devicetrees/qcom/camera" />
   </project>
-
   <project name="android_kernel_qcom_sm8650-devicetrees" path="kernel/meizu/sm8650-qcom-devicetrees" remote="lineage-meizu" revision="4e146886d41b4de80f17ae1f5e19ed0839012136" clone-depth="1">
     <linkfile src="qcom/bt" dest="kernel/meizu/sm8650-devicetrees/qcom/bt" />
     <linkfile src="qcom/data" dest="kernel/meizu/sm8650-devicetrees/qcom/data" />
@@ -29,7 +26,6 @@
     <linkfile src="qcom/eva" dest="kernel/meizu/sm8650-devicetrees/qcom/eva" />
     <linkfile src="qcom/graphics" dest="kernel/meizu/sm8650-devicetrees/qcom/graphics" />
   </project>
-
   <!-- BoardConfig.mk expects these external module roots. -->
   <project name="vendor_meizu_opensource_kernel-modules" path="kernel/meizu/sm8650-modules/meizu-device" remote="meizu-kernel" revision="dafe79bf5dbb772def7805a05ac917fa55ae9855" clone-depth="1" />
   <project name="vendor_nxp_opensource_driver" path="kernel/meizu/sm8650-modules/nxp/opensource/driver" remote="meizu-kernel" revision="eac8559da4e88659fb3abbfcbd04f06bf83e35aa" clone-depth="1" />
@@ -52,6 +48,19 @@
   <project name="vendor_qcom_opensource_video-driver" path="kernel/meizu/sm8650-modules/qcom/opensource/video-driver" remote="meizu-kernel" revision="af56965bc38de325e96e595257fc36273eae8a5e" clone-depth="1" />
   <project name="vendor_qcom_opensource_wlan_platform" path="kernel/meizu/sm8650-modules/qcom/opensource/wlan/platform" remote="meizu-kernel" revision="7df491cb7bba89ccf5c5a52950314d07d3bb3d3f" clone-depth="1" />
   <project name="vendor_qcom_opensource_wlan_qcacld-3.0" path="kernel/meizu/sm8650-modules/qcom/opensource/wlan/qcacld-3.0" remote="meizu-kernel" revision="26e5cdcac473923649df458a89161e66b1551e0e" clone-depth="1" />
-
-  <project name="meizu21pro-droidspaces-kernel" path="prebuilts/meizu/droidspaces" remote="mxihan-meizu" revision="6546ec0cb942798da5ec35d7c80cf0825032ac83" clone-depth="1" />
+  <project name="meizu21pro-droidspaces-kernel" path="prebuilts/meizu/droidspaces" remote="mxihan-meizu" revision="d98612fa28f478084f12eb9254052e1d30be56ed" clone-depth="1" upstream="refs/heads/main" />
+  <!-- Device build hooks pinned to the validated PixelOS source revisions. -->
+  <remove-project name="PixelOS-AOSP/android_build" />
+  <project name="android_build" path="build/make" remote="mxihan-meizu" revision="a80300884c2b6e7acb4b75598a85e649dbd12e1c" upstream="refs/heads/pixelos17-droidspaces" dest-branch="refs/heads/pixelos17-droidspaces" groups="pdk,sysui-studio" clone-depth="1">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <remove-project name="PixelOS-AOSP/android_build_soong" />
+  <project name="android_build_soong" path="build/soong" remote="mxihan-meizu" revision="0344627080efe36ec95ceae17cab527839896914" upstream="refs/heads/pixelos17-droidspaces" dest-branch="refs/heads/pixelos17-droidspaces" groups="pdk,sysui-studio,tradefed" clone-depth="1" />
+  <remove-project name="platform/packages/apps/CarrierConfig" />
+  <project name="android_packages_apps_CarrierConfig" path="packages/apps/CarrierConfig" revision="8cf047f7153ee023b9348bae7ad1796df8289bbf" upstream="refs/heads/pixelos17-droidspaces" dest-branch="refs/heads/pixelos17-droidspaces" groups="pdk-cw-fs,pdk-fs" remote="mxihan-meizu" clone-depth="1" />
 </manifest>
