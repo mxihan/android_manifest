@@ -5,7 +5,7 @@
   <remote name="mxihan-meizu" fetch="https://github.com/mxihan/" />
   <remote name="meizu-kernel" fetch="https://github.com/meizu-8650-kernel/" />
   <remote name="lineage-meizu" fetch="https://github.com/LineageOS/" />
-  <project name="android_device_meizu_meizu21Pro" path="device/meizu/meizu21Pro" remote="mxihan-meizu" revision="cc9123f3948cce881acbe4303dcbaa73d6d8e7a5" clone-depth="1" upstream="refs/heads/pixelos17-droidspaces" />
+  <project name="android_device_meizu_meizu21Pro" path="device/meizu/meizu21Pro" remote="mxihan-meizu" revision="7d93c1688d7666896373d87c8b112412687e2a66" clone-depth="1" upstream="refs/heads/pixelos17-droidspaces" />
   <project name="android_device_meizu_meizu21Pro-meizucamera" path="device/meizu/meizu21Pro-meizucamera" remote="mxihan-meizu" revision="cece1c826ac918ba9691479331c9db93f05bb539" clone-depth="1" upstream="refs/heads/seventeen" />
   <project name="android_hardware_meizu" path="hardware/meizu" remote="mxihan-meizu" revision="d1355f82b0b209cfd2a9b24e1340b473ae38bbb6" clone-depth="1" upstream="refs/heads/seventeen" />
   <project name="android_kernel_meizu_sm8650" path="kernel/meizu/sm8650" remote="mxihan-meizu" revision="ddd872579d674cdd74033a30d37cd8de1286f5f3" clone-depth="1" upstream="refs/heads/pixelos17-droidspaces" />
@@ -44,11 +44,11 @@
   <project name="vendor_qcom_opensource_mmrm-driver" path="kernel/meizu/sm8650-modules/qcom/opensource/mmrm-driver" remote="meizu-kernel" revision="3d1ecbf2bf133e4416db749feb7861257e181f57" clone-depth="1" />
   <project name="vendor_qcom_opensource_securemsm-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/securemsm-kernel" remote="meizu-kernel" revision="80971ddc31ad61cca6579680cf31818562e0a26a" clone-depth="1" />
   <project name="vendor_qcom_opensource_synx-kernel" path="kernel/meizu/sm8650-modules/qcom/opensource/synx-kernel" remote="meizu-kernel" revision="59596020152740d4697be9befdd6b7637918ca90" clone-depth="1" />
-  <project name="vendor_qcom_opensource_touch-drivers" path="kernel/meizu/sm8650-modules/qcom/opensource/touch-drivers" remote="meizu-kernel" revision="9ff7d02ed405ba78c5d822fe8964a1822bd7e5a2" clone-depth="1" />
+  <project name="vendor_qcom_opensource_touch-drivers" path="kernel/meizu/sm8650-modules/qcom/opensource/touch-drivers" remote="mxihan-meizu" revision="a7252cea545510034cb8f4d459ce43541f698edc" clone-depth="1" upstream="refs/heads/pixelos17-droidspaces" />
   <project name="vendor_qcom_opensource_video-driver" path="kernel/meizu/sm8650-modules/qcom/opensource/video-driver" remote="meizu-kernel" revision="af56965bc38de325e96e595257fc36273eae8a5e" clone-depth="1" />
   <project name="vendor_qcom_opensource_wlan_platform" path="kernel/meizu/sm8650-modules/qcom/opensource/wlan/platform" remote="meizu-kernel" revision="7df491cb7bba89ccf5c5a52950314d07d3bb3d3f" clone-depth="1" />
   <project name="vendor_qcom_opensource_wlan_qcacld-3.0" path="kernel/meizu/sm8650-modules/qcom/opensource/wlan/qcacld-3.0" remote="meizu-kernel" revision="26e5cdcac473923649df458a89161e66b1551e0e" clone-depth="1" />
-  <project name="meizu21pro-droidspaces-kernel" path="prebuilts/meizu/droidspaces" remote="mxihan-meizu" revision="d98612fa28f478084f12eb9254052e1d30be56ed" clone-depth="1" upstream="refs/heads/main" />
+  <project name="meizu21pro-droidspaces-kernel" path="prebuilts/meizu/droidspaces" remote="mxihan-meizu" revision="5dcbbf94f99cc392788058a0a0545ed1828f196b" clone-depth="1" upstream="refs/heads/main" />
   <!-- Device build hooks pinned to the validated PixelOS source revisions. -->
   <remove-project name="PixelOS-AOSP/android_build" />
   <project name="android_build" path="build/make" remote="mxihan-meizu" revision="a80300884c2b6e7acb4b75598a85e649dbd12e1c" upstream="refs/heads/pixelos17-droidspaces" dest-branch="refs/heads/pixelos17-droidspaces" groups="pdk,sysui-studio" clone-depth="1">

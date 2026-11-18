@@ -39,11 +39,23 @@ The camera and Meizu hardware projects are pinned to the existing forks at
 `cece1c826ac918ba9691479331c9db93f05bb539` and
 `d1355f82b0b209cfd2a9b24e1340b473ae38bbb6` respectively.
 
-## Reuse the validated source
+## November 18, 2026 touch sampling update
 
-`source-manifest.lock.xml` pins all 1,237 projects from the validated build,
-including the newly committed device fixes. Initialize a fresh checkout with
-the locked manifest to reproduce that source set.
+The full A/B OTA `PixelOS_meizu21Pro-17.0-20261118-1349-TouchRate-UI.zip` uses Android
+incremental version `1795009797`. It includes the 120 Hz, 480 Hz, and
+automatic game modes, with a gamepad and toast in Quick Settings and the
+touch sampling row grouped with the other display controls.
+
+The OTA SHA-256 is `cda6e79c60a6e0c2574eecf401dc27e644f559a29481e483394baeb89d99d8f0`.
+
+- Device tree `7d93c1688d7666896373d87c8b112412687e2a66`. [Source commit](https://github.com/mxihan/android_device_meizu_meizu21Pro/commit/7d93c1688d7666896373d87c8b112412687e2a66)
+- Goodix driver `a7252cea545510034cb8f4d459ce43541f698edc`. [Source commit](https://github.com/mxihan/vendor_qcom_opensource_touch-drivers/commit/a7252cea545510034cb8f4d459ce43541f698edc)
+- Image preparation `5dcbbf94f99cc392788058a0a0545ed1828f196b`. [Source commit](https://github.com/mxihan/meizu21pro-droidspaces-kernel/commit/5dcbbf94f99cc392788058a0a0545ed1828f196b)
+
+## Reuse the pinned source
+
+`source-manifest.lock.xml` pins the Android sources and the Goodix driver
+for the touch sampling update. Initialize a fresh checkout with this manifest.
 
 ```bash
 repo init -u https://github.com/mxihan/android_manifest.git \
@@ -57,8 +69,8 @@ this manifest. The projects are supplied directly by this manifest.
 
 Supply the matching proprietary `vendor/meizu` tree and the four base images
 extracted from `PixelOS_meizu21Pro-17.0-20260928-0803.zip`. The preparation
-script verifies the base hashes and reconstructs the exact vendor boot and
-module images used for the validated release. The generated device inputs
+script verifies the base hashes and stages the vendor boot and module
+images with the rebuilt Goodix driver. The generated device inputs
 are consumed from `device/meizu/meizu21Pro/droidspaces-prebuilt/`.
 
 ```bash
@@ -66,7 +78,8 @@ source build/envsetup.sh
 breakfast meizu21Pro userdebug
 m mkfs.erofs fsck.erofs
 python3 prebuilts/meizu/droidspaces/scripts/prepare_pixelos_prebuilts.py \
-  --android-root "$PWD" --base-images /path/to/base-images
+  --android-root "$PWD" --base-images /path/to/base-images \
+  --touch-module /path/to/goodix_ts.ko
 export GOGC=20 GOMEMLIMIT=20GiB GOMAXPROCS=8
 m pixelos -j12
 ```
